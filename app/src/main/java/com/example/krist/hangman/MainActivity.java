@@ -1,6 +1,9 @@
 package com.example.krist.hangman;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
@@ -47,6 +50,16 @@ public class MainActivity extends AppCompatActivity {
         musicBtn.setOnClickListener(soundClick);
         noBtn.setOnClickListener(langClick);
         ukBtn.setOnClickListener(langClick);
+
+        loopScaleAnimation(findViewById(R.id.titletext));
+
+        playBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -129,5 +142,22 @@ public class MainActivity extends AppCompatActivity {
         }
         setMusicImage(musicOn);
         editor.apply();
+    }
+
+    /**
+     * Loops a scaling animation on a view
+     * @param v view to be animated
+     */
+    void loopScaleAnimation(View v) {
+        ObjectAnimator scaleDown = ObjectAnimator.ofPropertyValuesHolder(
+                v,
+                PropertyValuesHolder.ofFloat("scaleX", 1.1f),
+                PropertyValuesHolder.ofFloat("scaleY", 1f));
+        scaleDown.setDuration(1500);
+
+        scaleDown.setRepeatCount(ObjectAnimator.INFINITE);
+        scaleDown.setRepeatMode(ObjectAnimator.REVERSE);
+
+        scaleDown.start();
     }
 }
