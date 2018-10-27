@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Hangman</string>
     <string name="play">Play</string>
+    <string name="music">music</string>
+    <string name="english">english</string>
+    <string name="norwegian">norwegian</string>
+    <string name="hangmanimage">hangmanimage</string>
+    <string name="title">title</string>
 </resources>
