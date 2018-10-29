@@ -6,18 +6,22 @@ public class Round {
     private int roundNr;
     private int inncorrectNr;
 
-    public Round(String currentWord, int roundNr) {
+    Round(String currentWord, int roundNr) {
         this.currentWord = currentWord;
         this.roundNr = roundNr;
         this.inncorrectNr = 0;
         StringBuilder s = new StringBuilder();
         for (int i = 0; i < currentWord.length(); i++) {
-            s.append('_');
+            if (currentWord.charAt(i) == ' ') {
+                s.append(' ');
+            } else {
+                s.append('_');
+            }
         }
         this.guessedWord = s.toString();
     }
 
-    public boolean guess(char c) {
+    boolean guess(char c) {
         if (currentWord.indexOf(c) >= 0) {
             StringBuilder sb = new StringBuilder(guessedWord);
             for (int index = currentWord.indexOf(c);
@@ -33,39 +37,39 @@ public class Round {
         }
     }
 
-    public boolean checkWin() {
+    boolean checkWin() {
         return currentWord.equals(guessedWord);
     }
 
-    public String getCurrentWord() {
+    String getCurrentWord() {
         return currentWord;
     }
 
-    public void setCurrentWord(String currentWord) {
+    void setCurrentWord(String currentWord) {
         this.currentWord = currentWord;
     }
 
-    public String getGuessedWord() {
+    String getGuessedWord() {
         return guessedWord;
     }
 
-    public void setGuessedWord(String guessedWord) {
+    void setGuessedWord(String guessedWord) {
         this.guessedWord = guessedWord;
     }
 
-    public int getRoundNr() {
+    int getRoundNr() {
         return roundNr;
     }
 
-    public void setRoundNr(int roundNr) {
+    void setRoundNr(int roundNr) {
         this.roundNr = roundNr;
     }
 
-    public int getInncorrectNr() {
+    int getInncorrectNr() {
         return inncorrectNr;
     }
 
-    public void setInncorrectNr(int inncorrectNr) {
+    void setInncorrectNr(int inncorrectNr) {
         this.inncorrectNr = inncorrectNr;
     }
 }

@@ -92,7 +92,7 @@ public class GameActivity extends AppCompatActivity{
             bufferedReader = new BufferedReader(new InputStreamReader(getAssets().open(fileName), "UTF-8"));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                words.add(line);
+                words.add(line.toLowerCase());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -112,7 +112,11 @@ public class GameActivity extends AppCompatActivity{
         StringBuilder res = new StringBuilder();
         for(int i = 0; i < s.length(); i++){
             if (i != s.length()-1) {
-                res.append(s.charAt(i)).append(" ");
+                if (s.charAt(i) == ' ') {
+                    res.append("   ");
+                } else {
+                    res.append(s.charAt(i)).append(" ");
+                }
             } else {
                 res.append(s.charAt(i));
             }

@@ -8,6 +8,10 @@ import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -51,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         ukBtn.setOnClickListener(langClick);
 
         loopScaleAnimation(findViewById(R.id.titletext));
+//        setToolbar();
 
         playBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ImageView menu_btn = findViewById(R.id.menu_btn);
     }
 
     @Override
@@ -158,5 +165,16 @@ public class MainActivity extends AppCompatActivity {
         scaleDown.setRepeatMode(ObjectAnimator.REVERSE);
 
         scaleDown.start();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.game_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 }
