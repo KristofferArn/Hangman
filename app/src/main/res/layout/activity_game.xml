@@ -8,7 +8,7 @@
     android:background="@drawable/background">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/hangman_image"
         android:layout_width="315dp"
         android:layout_height="337dp"
         android:layout_marginStart="8dp"
@@ -18,11 +18,10 @@
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/human07" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/word_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -31,13 +30,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:gravity="center"
-        android:text="s _ o _ o _ _ d e"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         app:fontFamily="@font/cherry_cream_soda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/hangman_image" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -51,15 +49,12 @@
         android:name="com.example.krist.hangman.KeyboardFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/word_view"
+        tools:layout="@layout/norwegian_keyboard_fragment" />
 
 </android.support.constraint.ConstraintLayout>

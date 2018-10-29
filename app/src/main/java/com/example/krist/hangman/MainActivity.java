@@ -2,7 +2,6 @@ package com.example.krist.hangman;
 
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setLanguage(language);
 
         musicOn = spf.getBoolean("music", false);
-        sound = MediaPlayer.create(this, R.raw.pingpongmusic);
+        sound = MediaPlayer.create(this, R.raw.animalmagic);
         sound.setLooping(true);
         setMusicImage(musicOn);
         if (musicOn) sound.start();
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     View.OnClickListener soundClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = spf.edit();
+            SharedPreferences.Editor editor = spf.edit();
             if (musicOn) {
                 musicOn = false;
                 editor.putBoolean("music", false);
@@ -128,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
      * @param lang string to set language (norwegian/english)
      */
     void setLanguage(String lang) {
-        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = spf.edit();
+        SharedPreferences.Editor editor = spf.edit();
         editor.putString("language", lang);
         language = lang;
         if (language.equals("norwegian")) {
