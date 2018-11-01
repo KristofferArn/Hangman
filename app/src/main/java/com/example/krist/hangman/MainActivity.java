@@ -1,20 +1,18 @@
 package com.example.krist.hangman;
 
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView playBtn;
     ImageView noBtn;
     ImageView ukBtn;
+    ImageButton menuBtn;
 
 
     @Override
@@ -38,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         playBtn = findViewById(R.id.playBtn);
         noBtn = findViewById(R.id.noBtn);
         ukBtn = findViewById(R.id.ukBtn);
+        menuBtn = findViewById(R.id.menu_btn);
 
 
         spf = PreferenceManager.getDefaultSharedPreferences(this);
@@ -54,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
         noBtn.setOnClickListener(langClick);
         ukBtn.setOnClickListener(langClick);
 
-        loopScaleAnimation(findViewById(R.id.titletext));
-//        setToolbar();
-
         playBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        ImageView menu_btn = findViewById(R.id.menu_btn);
     }
 
     @Override
@@ -139,42 +134,60 @@ public class MainActivity extends AppCompatActivity {
         language = lang;
         if (language.equals("norwegian")) {
             playBtn.setImageResource(R.drawable.spill);
-            noBtn.setBackgroundColor(getResources().getColor(android.R.color.white));
-            ukBtn.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+            noBtn.setAlpha(1f);
+            ukBtn.setAlpha(0.5f);
         } else if (language.equals("english")){
             playBtn.setImageResource(R.drawable.play);
-            ukBtn.setBackgroundColor(getResources().getColor(android.R.color.white));
-            noBtn.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+            ukBtn.setAlpha(1f);
+            noBtn.setAlpha(0.5f);
         }
         setMusicImage(musicOn);
         editor.apply();
     }
 
     /**
-     * Loops a scaling animation on a view
-     * @param v view to be animated
+     * Shows menu with Help and Quit when user clicks view.
+     * @param view view to be clicked.
      */
-    void loopScaleAnimation(View v) {
-        ObjectAnimator scaleDown = ObjectAnimator.ofPropertyValuesHolder(
-                v,
-                PropertyValuesHolder.ofFloat("scaleX", 1.1f),
-                PropertyValuesHolder.ofFloat("scaleY", 1f));
-        scaleDown.setDuration(1500);
-
-        scaleDown.setRepeatCount(ObjectAnimator.INFINITE);
-        scaleDown.setRepeatMode(ObjectAnimator.REVERSE);
-
-        scaleDown.start();
+    public void showMenu(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.game_menu, popupMenu.getMenu());
+        if (language.equals("norwegian")) {
+            popupMenu.getMenu().findItem(R.id.menu_quit).setTitle(R.string.no_quit);
+            popupMenu.getMenu().findItem(R.id.menu_help).setTitle(R.string.no_help);
+        }
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_help:
+                        helpDialog();
+                        break;
+                    case R.id.menu_quit:
+                        finishAffinity();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+        popupMenu.show();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.game_menu, menu);
-        return true;
+    /**
+     * Shows a AlertDialog with help information about the game.
+     */
+    void helpDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if (language.equals("norwegian")) {
+            builder.setMessage(R.string.no_game_description);
+        } else if (language.equals("english")) {
+            builder.setMessage(R.string.uk_game_description);
+        }
+        builder.setPositiveButton("OK", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
 }

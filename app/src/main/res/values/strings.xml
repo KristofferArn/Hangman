@@ -6,4 +6,29 @@
     <string name="norwegian">norwegian</string>
     <string name="hangmanimage">hangmanimage</string>
     <string name="title">title</string>
+
+    <string name="no_quit">Avslutt</string>
+    <string name="uk_quit">Quit</string>
+
+    <string name="no_help">Hjelp</string>
+    <string name="uk_help">Help</string>
+
+    <string name="no_game_description">Spillet går ut på å finne et hemmelig ord ved å gjette en og en bokstav om gangen. Hvis bokstaven du gjetter befinner seg i ordet vil dette vises, men om bokstaven ikke er i ordet vil streker tegnes på skjermen helt til du blir \"hengt\".</string>
+    <string name="uk_game_description">This game revolves around finding a hidden word by guessing one letter at a time. If the letter you guess is in the word, it will show up in the correct places, but if you guess the wrong letter you will slowly be \"hanged\"</string>
+
+    <string name="no_good_job">Godt Jobbet!</string>
+    <string name="uk_good_job">Good Job!</string>
+
+    <string name="no_sorry">Beklager..</string>
+    <string name="uk_sorry">Sorry..</string>
+
+    <string name="no_show_word">Ordet var: %1$s</string>
+    <string name="uk_show_word">The word was: %1$s</string>
+
+    <string name="no_new_word">Nytt Ord</string>
+    <string name="uk_new_word">New Word</string>
+
+    <string name="no_home">Hjem</string>
+    <string name="uk_home">Home</string>
+    <string name="menu">menu</string>
 </resources>

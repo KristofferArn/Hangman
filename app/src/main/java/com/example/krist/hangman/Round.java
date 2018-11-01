@@ -3,12 +3,10 @@ package com.example.krist.hangman;
 public class Round {
     private String currentWord;
     private String guessedWord;
-    private int roundNr;
     private int inncorrectNr;
 
-    Round(String currentWord, int roundNr) {
+    Round(String currentWord) {
         this.currentWord = currentWord;
-        this.roundNr = roundNr;
         this.inncorrectNr = 0;
         StringBuilder s = new StringBuilder();
         for (int i = 0; i < currentWord.length(); i++) {
@@ -55,14 +53,6 @@ public class Round {
 
     void setGuessedWord(String guessedWord) {
         this.guessedWord = guessedWord;
-    }
-
-    int getRoundNr() {
-        return roundNr;
-    }
-
-    void setRoundNr(int roundNr) {
-        this.roundNr = roundNr;
     }
 
     int getInncorrectNr() {

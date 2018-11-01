@@ -5,8 +5,8 @@
     <item
         android:id="@+id/menu_help"
         android:icon="@android:drawable/ic_dialog_info"
-        android:title="HELP" />
+        android:title="@string/uk_help" />
     <item
         android:id="@+id/menu_quit"
-        android:title="QUIT" />
+        android:title="@string/uk_quit" />
 </menu>

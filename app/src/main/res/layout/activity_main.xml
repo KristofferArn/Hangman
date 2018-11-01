@@ -9,17 +9,17 @@
 
     <ImageView
         android:id="@+id/titletext"
-        android:layout_width="334dp"
+        android:layout_width="330dp"
         android:layout_height="79dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:contentDescription="@string/title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_btn"
         app:srcCompat="@drawable/logo" />
 
     <ImageView
@@ -49,8 +49,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="8dp"
+        android:alpha="0.5"
         android:contentDescription="@string/norwegian"
-        android:padding="1.5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/flagnorway" />
@@ -62,9 +62,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@android:color/white"
         android:contentDescription="@string/english"
-        android:padding="1.5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/noBtn"
         app:srcCompat="@drawable/flaguk" />
@@ -84,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titletext"
-        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintVertical_bias="0.22000003"
         app:srcCompat="@drawable/play" />
 
     <ImageView
@@ -102,15 +100,18 @@
         app:layout_constraintTop_toBottomOf="@+id/playBtn"
         app:srcCompat="@drawable/musicoff" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/menu_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@null"
+        android:onClick="showMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_dialog_dialer" />
+        app:srcCompat="@android:drawable/ic_dialog_dialer"
+        android:contentDescription="@string/menu"/>
 
 </android.support.constraint.ConstraintLayout>

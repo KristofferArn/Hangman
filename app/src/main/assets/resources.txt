@@ -1,0 +1,5 @@
+For a list of english words
+https://github.com/first20hours/google-10000-english/blob/master/google-10000-english-usa-no-swears-medium.txt
+
+For UI Images on mainscreen
+https://cooltext.com/
