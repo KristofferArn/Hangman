@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setLanguage(language);
 
         musicOn = spf.getBoolean("music", false);
-        sound = MediaPlayer.create(this, R.raw.animalmagic);
+        sound = MediaPlayer.create(this, R.raw.swayingdaisies);
         sound.setLooping(true);
         setMusicImage(musicOn);
         if (musicOn) sound.start();

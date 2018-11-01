@@ -2,6 +2,5 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/cherry_cream_soda</item>
-        <item>@font/holtwood_one_sc</item>
     </array>
 </resources>

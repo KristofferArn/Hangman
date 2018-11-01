@@ -59,7 +59,7 @@ public class GameActivity extends AppCompatActivity {
         language = spf.getString("language", "english");
 
         musicOn = spf.getBoolean("music", false);
-        sound = MediaPlayer.create(this, R.raw.animalmagic);
+        sound = MediaPlayer.create(this, R.raw.swayingdaisies);
         sound.setLooping(true);
         if (musicOn) sound.start();
 
@@ -105,7 +105,7 @@ public class GameActivity extends AppCompatActivity {
                 showPopup(true, currentRound.getCurrentWord());
             }
         } else {
-//            hangmanImage.setImageResource(hangmanDraw.get(currentRound.getInncorrectNr() - 1));
+            hangmanImage.setImageResource(hangmanDraw.get(currentRound.getInncorrectNr() - 1));
             if (currentRound.getInncorrectNr() == 8) {
                 showPopup(false, currentRound.getCurrentWord());
             }
